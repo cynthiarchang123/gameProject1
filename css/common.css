@@ -1,0 +1,41 @@
+.pet {
+    border: 1px #b7f4ff;
+    border-style: dashed;
+    height: 175px;
+    width: 190px;
+    /* object-fit: cover; */
+}
+
+.btn {
+    background: transparent;
+    border: 0;
+    width: 100px;
+}
+
+.btn img{width: 100%;}
+.colGrp{padding: 0;margin: 0px;padding: 10px;float: left;}
+#divPets {
+    display: none;
+    width: 848px;
+    margin: auto;
+    position: relative;
+}
+html,body,.container{width: 100%;height: 100%;font-family:'Microsoft JhengHei';}
+.page-header{text-align: center;margin-top: 12%;border: 0;}
+.timerGrp{display: none;position: absolute;top: -30px;left: 10px;
+    text-align: right;
+    color: rgb(72, 178, 204);font-size: 25px;font-weight: bold;}
+.timerGrp #gameCnt{background: rgb(72, 178, 204);
+    color: #fff;border-radius: 12px;padding: 0px 12px;}
+
+#toast-container > .toast-success {
+    background-image: none;
+    background-color: #e9e9e9;
+    color: black;
+}
+#toast-container > .toast-error {
+    background-image: none;
+    background-color: #e9e9e9;
+    color: red;
+}
+#imgTitle{width: 240px;}

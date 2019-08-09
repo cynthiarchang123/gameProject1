@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.toast.css">
+    <link rel="stylesheet" href="css/common.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <img src="images/abc.png" id="imgTitle">
+            <h2>字母記憶遊戲</h2>
+            <button class="btn" id="gameStart"><img src="images/Arrow Right.png" /></button>
+        </div>
+        <div class="row" id="divPets">
+            <div class="timerGrp">累計分數：<span id="gameCnt">0</span></div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/a.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/b.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/c.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/d.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/e.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/r.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/a.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/b.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/c.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/d.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/e.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+            <div class="colGrp">
+                <img src="images/q.png" class="pet imgMask img-responsive img-thumbnail" data-species=""
+                    data-show="y" />
+                <img src="images/r.png" class="pet imgOrg img-responsive img-thumbnail" data-species="" data-show="n" />
+            </div>
+
+        </div> <!-- end of row -->
+
+    </div> <!-- end of container -->
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.toast.js"></script>
+
+    <script>
+
+        // 使用方式:
+        // showToast("標題", "提示文字") 例如:
+        // showToast("Hint", "請點一下正確的圖案");
+        function showToast(heading, message) {
+            $.toast({
+                text: message, // Text that is to be shown in the toast
+                heading: heading, // Optional heading to be shown on the toast
+                icon: 'info', // Type of toast icon  //warning info  error
+                showHideTransition: 'fade', // fade, slide or plain
+                allowToastClose: true, // Boolean value true or false
+                hideAfter: 2000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                position: 'top-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+                textAlign: 'left',  // Text alignment i.e. left, right or center
+                loader: false,  // Whether to show loader or not. True by default
+                loaderBg: '#fff',  // Background color of the toast loader
+                beforeShow: function () { }, // will be triggered before the toast is shown
+                afterShown: function () { }, // will be triggered after the toat has been shown
+                beforeHide: function () { }, // will be triggered before the toast gets hidden
+                afterHidden: function () { }  // will be triggered after the toast has been hidden
+            });
+        }
+
+        function showToastWarning(heading, message) {
+            $.toast({
+                text: message, // Text that is to be shown in the toast
+                heading: heading, // Optional heading to be shown on the toast
+                icon: 'warning', // Type of toast icon  //warning info  error
+                showHideTransition: 'fade', // fade, slide or plain
+                allowToastClose: true, // Boolean value true or false
+                hideAfter: 2000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                position: 'top-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+                textAlign: 'left',
+                loader: false
+            });
+        }
+
+
+        function showToastSuccess(heading, message) {
+            $.toast({
+                text: message, // Text that is to be shown in the toast
+                heading: heading, // Optional heading to be shown on the toast
+                icon: 'success', // Type of toast icon  //warning info  error
+                showHideTransition: 'fade', // fade, slide or plain
+                allowToastClose: true, // Boolean value true or false
+                hideAfter: 2000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                stack: 5, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                position: 'top-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+                textAlign: 'left',
+                loader: false
+            });
+        }
+
+        function showToastAllSuccess(heading, message) {
+            $.toast({
+                text: message, // Text that is to be shown in the toast
+                heading: heading, // Optional heading to be shown on the toast
+                icon: 'success', // Type of toast icon  //warning info  error
+                showHideTransition: 'fade', // fade, slide or plain
+                allowToastClose: true, // Boolean value true or false
+                hideAfter: false, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden
+                stack: false, // false if there should be only one toast at a time or a number representing the maximum number of toasts to be shown at a time
+                position: 'top-left', // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values
+                textAlign: 'left',
+                loader: false
+            });
+        }
+        var sec = 0;
+        var flag = null;
+        var count = 0;
+        $(document).ready(function () {
+            $("#gameStart").click(function () {
+                $("#imgTitle").hide();
+                $("#gameStart").hide();
+                $(".page-header").css({ "margin-top": "0" });
+                $("#divPets").show();
+                $(".timerGrp").show();
+                fnGameStart();
+            });
+
+        });
+        //$(function () {
+        function fnGameStart() {
+            $(".pet").mouseenter(function () {
+                $(this).removeClass("img-thumbnail");
+            })
+
+            $(".pet").mouseleave(function () {
+                $(this).addClass("img-thumbnail");
+            })
+
+            var speciesList = ["狗狗", "貓", "兔兔"];
+            var readFirstSrc = null;
+            var readSecSrc = null;
+            var cnt = 0;
+
+            $(".imgMask").hide();
+            $(".imgOrg").show();
+
+            flag = setInterval(allHide, 3000);
+
+            $(".imgMask").each(function (key, obj) {
+                var objShow = null;
+                $(this).click(function (index) {
+                    cnt++;
+                    $(this).hide();
+                    $(this).next().show();
+
+                    if (cnt == 1) {
+                        readFirstSrc = $(this).next().prop("src");
+                        $(this).addClass("readed");
+                        $(this).next().addClass("readed");
+                    }
+                    if (cnt == 2) {
+                        readSecSrc = $(this).next().prop("src");
+                        $(this).addClass("readed");
+                        $(this).next().addClass("readed");
+                        if (readFirstSrc == readSecSrc) {
+                            $(".readed").each(function () {
+                                if ($(this).prop("src") == readFirstSrc) {
+                                    $(this).addClass("bingo");
+                                    $(this).prev().addClass("bingo");
+                                }
+                                if ($(this).prop("src") == readSecSrc) {
+                                    $(this).addClass("bingo");
+                                    $(this).prev().addClass("bingo");
+                                }
+                            });
+                            flag = setInterval(imgShow, 1000);
+                            count++;
+                            document.getElementById('gameCnt').innerHTML = count;
+                            if ($(".bingo").length >= 24) {
+
+                                //clearInterval(flag);
+                                //flag = setInterval(allRight, 1000);
+                                showToastAllSuccess("Bingo<br/>全部答對了!!<br/><a class='btnClose' href='index.html'>關閉</a>", "");
+                                // $("#gameStart").show();
+                                // $(".page-header").css({ "margin-top": "20%" });
+                                // $("#divPets").hide();
+                                // $(".timerGrp").hide();
+                                // location.reload();
+                            } else {
+                                showToastSuccess("Bingo 答對了!", "");
+                            }
+                        } else {
+                            showToastWarning("NoNo 不對喔!", "");
+                            flag = setInterval(imgHide, 1000);
+                            $(".readed").removeClass(" readed");
+                        }
+                        cnt = 0;
+                    }
+                });
+
+
+            });
+
+            function allHide() {
+                $(".imgMask").show();
+                $(".imgOrg").hide();
+                sec = sec + 1;
+                //alert(sec);
+                clearInterval(flag);
+            }
+            function imgHide() {
+                $(".imgMask").show();
+                $(".imgMask.bingo").css({ "opacity": "0" });
+                $(".imgOrg").hide();
+                sec = sec + 1;
+                //alert(sec);
+                clearInterval(flag);
+            }
+            function imgShow() {
+                sec = sec + 1;
+                $(".bingo").css({ "opacity": "0" });
+                //alert(sec);
+                clearInterval(flag);
+
+            }
+            function allError() {
+                //alert(flag);
+                clearInterval(flag);
+            }
+            //showToast("Hint", "請點一下正確的圖案");
+
+            $(".pet").click(function () {
+
+                // $(this).css({
+                //     "transform":"rotateY(180deg)",
+                //     "width":"1px"
+                // });
+                // var species = $(this).data("species");
+                // if (species != "貓") {
+                //     //showToast("Hint", "不對喔! 我是" + species);
+                //     $(this).fadeOut("fast");
+                // }
+                // else {
+                //     //showToast("Note", "答對了! XD");
+                //     $(".pet").not("img[data-species='貓']").fadeTo("fast", 0.50);
+                // }
+            });
+            //console.log($(("img[class='bingo']")));
+            //$(".pet").not("img[class='bingo']")
+
+            // flag = setInterval(allRight, 1000);
+            // function allRight(){
+            //     // alert("jfkda;");
+            //     // console.log($(".pet.bingo"));
+            //     // sec = sec + 1;
+            //     // clearInterval(flag);
+            // }
+        }
+        //})  // end of init.
+
+    </script>
+
+</body>
+
+</html>
